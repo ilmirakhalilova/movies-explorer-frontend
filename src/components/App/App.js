@@ -20,7 +20,7 @@ import moviesData from '../../utils/movies.js';
 // };
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
   
 
   return (

@@ -33,9 +33,9 @@ function Navigation(props) {
                 <div className="burger-menu">
                   <button className="burger-menu__close animation" type="button" onClick={handleOpenMenu} />
                   <div className="burger-menu__navigation">
-                    <Link to="/" className={`burger-menu__link animation ${props.pathname === "/" ? "burger-menu__link_active" : ""}`}>Главная</Link>
-                    <Link to="/movies" className={`burger-menu__link animation ${props.pathname === "/movies" ? "burger-menu__link_active" : ""}`}>Фильмы</Link>
-                    <Link to="/saved-movies" className={`burger-menu__link animation ${props.pathname === "/saved-movies" ? "burger-menu__link_active" : ""}`}>Сохранённые фильмы</Link>
+                    <Link to="/" className={`burger-menu__link animation ${props.pathname === "/" ? "burger-menu__link_active" : ""}`} onClick={handleOpenMenu} >Главная</Link>
+                    <Link to="/movies" className={`burger-menu__link animation ${props.pathname === "/movies" ? "burger-menu__link_active" : ""}`} onClick={handleOpenMenu} >Фильмы</Link>
+                    <Link to="/saved-movies" className={`burger-menu__link animation ${props.pathname === "/saved-movies" ? "burger-menu__link_active" : ""}`} onClick={handleOpenMenu} >Сохранённые фильмы</Link>
                   </div>
                   <div className="burger-menu__profile animation">
                     <Link to="/profile" className="burger-menu__profile-link" onClick={handleOpenMenu}>
