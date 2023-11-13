@@ -7,22 +7,28 @@ function Register() {
   const [password, setPassword] = React.useState('');
 
   return (
-    <section className="register">
+    <main className="register">
       <Link to="/" className="logo">
-        <div className="logo__icon"></div>
+        <div className="logo__icon animation"></div>
       </Link>
       <h1 className="register__title">Добро пожаловать!</h1>
       <form className="register__form">
         <div className="register__form-text">
-          <p className="register__field-name">Имя</p>
-          <input id="name" className="register__input" type="text" minLength="2" maxLength="30" placeholder="Введите имя" required></input>
-          <span id="name-error" className="register__error"></span>
-          <p className="register__field-name">E-mail</p>
-          <input id="email" className="register__input" type="email" placeholder="Введите email" required></input> {/* value={email} */}
-          {/* <span id="email-error" className="register__error">Неверный формат email</span> */}
-          <p className="register__field-name">Пароль</p>
-          <input id="password" className="register__input" type="password" placeholder="Введите пароль" required></input> {/* value={password} */}
-          {/* <span id="password-error" className="register__error">При регистрации пользователя произошла ошибка.</span> */}
+          <label className="register__field-name">
+            Имя
+            <input id="name" className="register__input" type="text" minLength="2" maxLength="30" placeholder="Введите имя" required></input>
+            {/* <span id="name-error" className="register__error"></span> */}
+          </label>
+          <label className="register__field-name">
+            E-mail
+            <input id="email" className="register__input" type="email" placeholder="Введите email" required></input> {/* value={email} */}
+            {/* <span id="email-error" className="register__error">Неверный формат email</span> */}
+          </label>
+          <label className="register__field-name">
+            Пароль
+            <input id="password" className="register__input" type="password" placeholder="Введите пароль" minLength="8" maxLength="16" required></input> {/* value={password} */}
+            {/* <span id="password-error" className="register__error">При регистрации пользователя произошла ошибка.</span> */}
+          </label>
         </div>
         <div className="register__buttons">
           <button className="register__button animation" type="submit">Зарегистрироваться</button>
@@ -32,7 +38,7 @@ function Register() {
           </p>
         </div>
       </form>
-    </section>
+    </main>
   )
 }
 

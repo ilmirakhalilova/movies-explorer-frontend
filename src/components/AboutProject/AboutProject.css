@@ -1,13 +1,14 @@
 .about-project {
+  max-width: 1280px;
   min-height: 608px;
   background: #202020;
   padding: 0 70px;
-  margin: 0;
+  margin: auto;
 }
 
 .about-project__title {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -34,13 +35,13 @@
 }
 
 .about-project__table-column:last-of-type {
-  padding-left: 38px;
+  padding-left: 49px;
 }
 
 .about-project__table-title {
   max-width: 550px;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -52,11 +53,13 @@
 
 .about-project__table-text {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .about-project__periods {
@@ -76,7 +79,7 @@
 .about-project__period {
   height: 36px;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -103,6 +106,7 @@
   .about-project {
     min-height: 585px;
     padding: 0 50px;
+    margin: 0;
   }
 
   .about-project__title {
@@ -137,10 +141,13 @@
 
 @media screen and (max-width: 600px)  {
   .about-project {
+    width: 100%;
     padding: 0 18px;
+    margin: auto;
   }
 
   .about-project__title {
+    max-width: 284px;
     font-size: 18px;
     letter-spacing: -0.72px;
     margin: 70px 0 0;
@@ -154,6 +161,7 @@
   .about-project__table-row {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 0;
     margin: 0;
   }

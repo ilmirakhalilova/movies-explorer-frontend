@@ -1,15 +1,19 @@
 .promo {
-  /* width: 100%; */
+  width: 100%;
   background-color: #073042;
+}
+
+.promo__main {
+  max-width: 1280px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   padding: 75px 70px 85px;
-  margin: 0;
 }
 
 .promo__info {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
 }
 
@@ -41,7 +45,7 @@
 
 .promo__more {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-size: 12px;
   font-weight: 500;
@@ -60,7 +64,7 @@
 }
 
 @media screen and (max-width: 920px) {
-  .promo {
+  .promo__main {
     padding: 140px 0 66px;
     flex-direction: column-reverse;
     align-items: center;
@@ -93,14 +97,14 @@
   }
 }
 
-@media screen and (max-width: 720px) {
+/* @media screen and (max-width: 720px) {
   .promo__title {
     width: 500px;
   }
-}
+} */
 
-@media screen and (max-width: 600px) {
-  .promo {
+@media screen and (max-width: 720px) {
+  .promo__main {
     padding: 70px 0 0;
     flex-direction: column-reverse;
     align-items: center;

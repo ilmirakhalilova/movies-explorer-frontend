@@ -1,27 +1,24 @@
 .techs {
+  width: 100%;
   min-height: 625px;
   background: #272727;
   padding: 0 70px;
-  margin: 0;
+  margin: auto;
 }
 
 .techs__title {
+  width: 100%;
+  max-width: 1140px;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.88px;
-  padding: 0;
-  margin: 100px 0 23px;
-}
-
-.techs__line {
-  width: 100%;
   border-bottom: 1px solid #DADADA;
-  padding: 0;
-  margin: 0;
+  padding: 0 0 23px;
+  margin: 100px auto 0;
 }
 
 .techs__text {
@@ -30,10 +27,11 @@
   align-items: center;
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   padding: 0;
+  margin: 0;
 }
 
 .techs__subtitle {
@@ -57,9 +55,8 @@
   gap: 10px;
   padding: 0;
   margin: 0;
-
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .techs__element{
@@ -68,7 +65,7 @@
   border-radius: 10px;
   background: #303030;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -88,7 +85,8 @@
   }
 
   .techs__title {
-    margin: 90px 0 23px;
+    width: 100%;
+    margin: 90px 0 0;
   }
 
   .techs__subtitle {
@@ -111,27 +109,24 @@
     font-size: 12px;
     letter-spacing: -0.48px;
   }
-}
 
-@media screen and (max-width: 750px) {
-
+  .techs__element:last-of-type {
+    margin: 0 0 90px;
+  }
 }
 
 @media screen and (max-width: 600px)  {
   .techs {
     background: #202020;
-    min-height: 651px;
-    padding: 0 18px;
+    /* min-height: 651px; */
+    padding: 0 18px 28px;
   }
 
   .techs__title {
     font-size: 18px;
     letter-spacing: -0.72px;
-    padding: 0;
-    margin: 126px 0 28px;
-  }
-
-  .techs__line {
+    padding: 0 0 28px;
+    margin: 126px 0 0;
     border-bottom: 1px solid #000;
   }
 

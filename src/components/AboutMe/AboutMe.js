@@ -3,9 +3,8 @@ import avatar  from '../../images/avatar.png';
 
 function AboutMe() {
   return (
-    <div className="aboutme">
+    <section className="aboutme">
       <h2 className="aboutme__title aboutme__text">Студент</h2>
-      <div className="aboutme__line" />
       <div className="aboutme__container">
         <div className="aboutme__text">
           <h3 className="aboutme__subtitle">Виталий</h3>
@@ -17,7 +16,7 @@ function AboutMe() {
         </div>
         <img src={avatar} alt="Фото студента" className="aboutme__avatar" />
       </div>
-    </div>
+    </section>
   )
 }
 
