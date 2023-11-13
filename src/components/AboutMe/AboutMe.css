@@ -1,12 +1,14 @@
 .aboutme {
+  width: 100%;
+  max-width: 1280px;
   background-color: #202020;
   padding: 0 70px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .aboutme__text {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
 }
 
@@ -15,14 +17,8 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.88px;
-  padding: 110px 0 23px;
-  margin: 0;
-}
-
-.aboutme__line {
-  width: 100%;
   border-bottom: 1px solid #DADADA;
-  padding: 0;
+  padding: 110px 0 23px;
   margin: 0;
 }
 
@@ -61,7 +57,7 @@
 
 .aboutme__github {
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 500;
@@ -134,19 +130,6 @@
 }
 
 @media screen and (max-width: 680px)  {
-  .aboutme {
-    /* width: 100%; */
-    padding: 0;
-    margin: 0 14px;
-  }
-
-  .aboutme__title {
-    font-size: 18px;
-    letter-spacing: -0.72px;
-    padding: 126px 0 28px;
-    margin: 0 ;
-  }
-
   .aboutme__container {
     flex-direction: column-reverse;
     align-items: center;
@@ -177,5 +160,18 @@
     font-size: 11px;
     line-height: 16px;
     margin: 0 0 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .aboutme {
+    padding: 0 14px;
+  }
+
+  .aboutme__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding: 22px 0 28px;
+    margin: 0;
   }
 }

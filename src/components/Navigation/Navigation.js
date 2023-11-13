@@ -15,7 +15,7 @@ function Navigation(props) {
       <div className="navigation">
         {props.loggedIn ?
           <>
-            <div className="navigation__menu">
+            <nav className="navigation__menu">
               <Link to="/movies" className={`navigation__link animation ${props.pathname === "/movies" ? "navigation__link_active" : ""}`}>Фильмы</Link>
               <Link to="/saved-movies" className={`navigation__link animation ${props.pathname === "/saved-movies" ? "navigation__link_active" : ""}`} >Сохранённые фильмы</Link>
               <div className="navigation__profile animation">
@@ -26,7 +26,7 @@ function Navigation(props) {
                   </p>
                 </Link>
               </div>
-            </div>
+            </nav>
             {isBurgerMenuOpen ?
               <>
                 <div className="overlay" onClick={handleOpenMenu} />
@@ -52,12 +52,12 @@ function Navigation(props) {
             }
           </>
           :
-          <div className="navigation__sign-menu">
+          <nav className="navigation__sign-menu">
             <Link to="/signup" className="navigation__sign-link animation">Регистрация</Link>
             <Link to="/signin" className="navigation__sign-link animation">
               <div className="navigation__button">Войти</div>
             </Link>
-          </div>
+          </nav>
         }
       </div>
     </>

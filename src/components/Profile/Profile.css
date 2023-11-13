@@ -11,7 +11,7 @@
 .profile__title {
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -33,37 +33,40 @@
 .profile__field-name {
   width: 410px;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   display: flex;
   justify-content: space-between;
-  padding: 0;
-  margin: 0;
+  border-bottom: 1px solid #424242;
+  outline: none;
+  padding: 0 0 16px;
+  margin: 0 0 17px;
+}
+
+.profile__field-name:last-of-type {
+  border: none;
 }
 
 .profile__input {
   all: unset;
+  width: 80%;
   color: #FFF;
   text-align: right;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  border: none;
   background: #202020;
   padding: 0;
   margin: 0;
 }
 
-.profile__line {
-  width: 100%;
-  border-bottom: 1px solid #424242;
-  padding: 0;
-  margin: 16px 0 17px;
+.profile__input_type_active:focus {
+  outline: 1px solid #3456F3;
 }
 
 .profile__buttons {
@@ -82,7 +85,7 @@
 .profile__button_type_edit {
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -100,7 +103,7 @@
 .profile__button_type_logout {
   color: #EE3465;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -117,7 +120,7 @@
 .profile__error {
   color: #FF004C;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 11px;
   font-style: normal;
   font-weight: 400;
@@ -133,7 +136,7 @@
   background: #3456F3;
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -157,6 +160,10 @@
   .profile__title {
     padding: 236px 0 96px;
   }
+
+  .profile__buttons {
+    margin-bottom: 269px;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -178,5 +185,13 @@
 
   .profile__button_type_logout {
     font-size: 12px;
+  }
+
+  .profile__button_type_save {
+    width: 260px;
+  }
+
+  .profile__buttons {
+    margin-bottom: 40px;
   }
 }

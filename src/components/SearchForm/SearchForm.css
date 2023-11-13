@@ -6,6 +6,12 @@
 }
 
 .search__form {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #AAA;
+}
+
+.search__input-container {
   width: 100%;
   height: 72px;
   background: #202020;
@@ -20,16 +26,21 @@
 
 .search__input {
   all: unset;
+  width: calc(100% - 105px);
   color: #FFF;;
   font-feature-settings: 'clig' off, 'liga' off;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   background: #202020;
-  padding: 0;
+  padding: 0 0 1px;
   margin: 0;
+}
+
+.search__input:focus {
+  outline: 1px solid #3456F3;
 }
 
 .search__input::placeholder {
@@ -44,7 +55,7 @@
   border: none;
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -59,16 +70,16 @@
 }
 
 .search__thumb {
-  background: #202020;
+  width: 180px;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
   display: flex;
   gap: 14px;
-  border: none;
+
   padding: 27px 0 44px;
   margin: 0;
 }
@@ -76,6 +87,8 @@
 .search__relay {
   width: 36px;
   height: 20px;
+  background: #202020;
+  border: none;
   background-size: cover;
   cursor: pointer;
 }
@@ -94,14 +107,6 @@
   background-repeat: no-repeat;
 }
 
-.search__line {
-  width: 100%;
-  border-bottom: 1px solid #AAA;
-  opacity: 0.2;
-  padding: 0;
-  margin: 0;
-}
-
 @media screen and (max-width: 920px) {
   .search {
     padding: 70px 30px 10px;
@@ -117,14 +122,13 @@
     padding: 70px 14px 30px;
   }
 
-  .search__form {
+  .search__input-container {
     height: 56px;
-    background: #202020;
     padding: 0 6px 0 12px;
-    margin: 0;
   }
 
   .search__thumb {
+    width: 160px;
     padding-bottom:52px;
     font-size: 11px;
     padding: 30px 0 63px;
@@ -136,7 +140,8 @@
   }
 
   .search__input {
-    width: calc(100% - 126px);
+    /* width: calc(100% - 126px); */
+    width: calc(100% - 85px);
     font-size: 16px;
     line-height: 16px;
   }

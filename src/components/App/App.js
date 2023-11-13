@@ -48,8 +48,8 @@ function App() {
           </>
         } />
 
-        <Route path='/signup' element={ <Register /> } />
-        <Route path='/signin' element={ <Login /> } />
+        <Route path='/signup' element={<Register />} />
+        <Route path='/signin' element={<Login />} />
         <Route path='/profile' element={
           <>
             <Header loggedIn={loggedIn}/>
@@ -57,7 +57,7 @@ function App() {
           </>
         } />
 
-        <Route path='*' element={<PageNotFound />} />
+        <Route path='*' element={ <PageNotFound /> } />
       </Routes>
     </div>
   );

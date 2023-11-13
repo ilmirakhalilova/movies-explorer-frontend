@@ -8,19 +8,23 @@ function Login() {
   const [password, setPassword] = React.useState('');
 
   return (
-    <section className="login">
+    <main className="login">
       <Link to="/" className="logo">
-        <div className="logo__icon"></div>
+        <div className="logo__icon animation"></div>
       </Link>
       <h1 className="login__title">Рады видеть!</h1>
       <form className="login__form">
         <div className="login__form-text">
-          <p className="login__field-name">E-mail</p>
-          <input id="email" className="login__input" type="email" placeholder="Введите email" required></input>  {/* value={email} */}
-          <span id="email-error" className="login__error"></span>
-          <p className="login__field-name">Пароль</p>
-          <input id="password" className="login__input" type="password" placeholder="Введите пароль" required></input>  {/* value={password} */}
-          {/* <span id="password-error" className="login__error">Что-то пошло не так...</span> */}
+          <label className="login__field-name">
+            E-mail
+            <input id="email" className="login__input" type="email" placeholder="Введите email" required></input>  {/* value={email} */}
+            {/* <span id="email-error" className="login__error"></span> */}
+          </label>
+          <label className="login__field-name">
+            Пароль
+            <input id="password" className="login__input" type="password" placeholder="Введите пароль" minLength="8" maxLength="16" required></input>  {/* value={password} */}
+            {/* <span id="password-error" className="login__error">Что-то пошло не так...</span> */}
+          </label>
         </div>
         <div className="login__buttons">
         <button className="login__button animation" type="submit">Войти</button>
@@ -30,9 +34,7 @@ function Login() {
           </p>
         </div>
       </form>
-
-      
-    </section>
+    </main>
   )
 }
 

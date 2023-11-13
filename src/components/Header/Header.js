@@ -10,14 +10,16 @@ function Header({ loggedIn }) {
   
   return (
     <header className={mainPage ? "header header_page_main" : "header"}>
-      <Link className="header__logo" to='/' > 
-        <img src={logoPath} alt="логотип в шапке"/>
-      </Link>
-      <div className="header__navigation">
-        <Navigation
-          loggedIn={loggedIn}
-          pathname={pathname}
-        />
+      <div className="header__container">
+        <Link className="header__logo animation" to='/' > 
+          <img src={logoPath} alt="логотип в шапке"/>
+        </Link>
+        <div className="header__navigation">
+          <Navigation
+            loggedIn={loggedIn}
+            pathname={pathname}
+          />
+        </div>
       </div>
     </header>
   )

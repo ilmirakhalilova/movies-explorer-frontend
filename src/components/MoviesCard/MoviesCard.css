@@ -19,6 +19,7 @@
   height: 54px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 18px;
   margin: 0;
 }
@@ -26,7 +27,7 @@
 .movies-card__name {
   width: 240px;
   color: #FFF;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -36,7 +37,7 @@
 .movies-card__duration {
   max-width: 70px;
   color: #8B8B8B;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -70,7 +71,7 @@
   border-radius: 30px;
   color: #FFF;
   text-align: center;
-  font-family: Inter;
+  font-family: 'Inter', 'Arial', sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
