@@ -61,8 +61,8 @@
   font-size: 14px;
   border: none;
   border-bottom: 1px solid #424242;
-  padding: 0 0 10px;
-  margin: 0 0 24px;
+  padding: 0 0 14px;
+  margin: 0 0 4px;
 }
 
 .register__input:focus {
@@ -73,10 +73,13 @@
   color: #EE3465;
   font-size: 10px;
   padding: 0;
-  margin: 0 0 8px;
+  margin: 0 0 2px;
 }
 
 .register__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0;
   margin: 0;
 }
@@ -95,7 +98,7 @@
   line-height: normal;
   border: none;
   padding: 0;
-  margin: 0;
+  margin: 20px 0 0;
   cursor: pointer;
 }
 
@@ -103,9 +106,21 @@
   opacity: 0.8;
 }
 
+.register__button_type_disabled {
+  background: #F8F8F8;
+  color: #C2C2C2;
+  cursor: auto;
+}
+
+.register__form-error {
+  color: #EE3465;
+  font-size: 10px;
+  padding: 0;
+  margin: 0 auto;
+}
+
 .register__text {
   color: #8B8B8B;
-  text-align: center;
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 14px;
   font-style: normal;

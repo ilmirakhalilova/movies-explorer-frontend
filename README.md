@@ -6,6 +6,10 @@
 
 [Адрес](https://github.com/ilmirakhalilova/movies-explorer-frontend/tree/level-2) репозитория
 
+[Ссылка](https://movieapp.nomoredomainsrocks.ru) на проект
+
+[Ссылка] на pull request
+
 ### Запуск проекта
 
 #### `npm run build` - генерация оптимизированной сборки проекта в директории /build для подследующего деплоя
