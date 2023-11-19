@@ -65,7 +65,7 @@ export const setUserInfo = (data) => { //PATCH
 //   .then(checkResponse);
 // }
 
-export const getSavedMovies = (token) => {
+export const getSavedMovies = (token) => { //GET
   return fetch(`${MAIN_API_URL}/movies`, {
     method: 'GET',
     headers: {

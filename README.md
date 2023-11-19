@@ -8,7 +8,7 @@
 
 [Ссылка](https://movieapp.nomoredomainsrocks.ru) на проект
 
-[Ссылка] на pull request
+[Ссылка](https://github.com/ilmirakhalilova/movies-explorer-frontend/pull/2) на pull request
 
 ### Запуск проекта
 

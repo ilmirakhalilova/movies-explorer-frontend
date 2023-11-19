@@ -66,13 +66,6 @@ function Profile(props) {
       })
   }
 
-  // useEffect(() => {
-  //   if (successfullUpdate) {
-  //     values.name = currentUser.name;
-  //     values.email = currentUser.email
-  //   }
-  // }, [successfullUpdate])
-
     // Выход
     function onSignOut() {
       props.setCurrentUser({ name:'', email:'' });

@@ -12,11 +12,8 @@ import Profile from '../Profile/Profile';
 import PageNotFound from '../PageNotFound/PageNotFound.js';
 import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 import ProtectedRouteElement from '../ProtectedRoute/ProtectedRoute.js';
-
-import moviesData from '../../utils/movies.js';
 import { register, authorize, getUserInfo, getSavedMovies } from '../../utils/MainApi.js'
 import { LOGIN_FORM_ERROR, REGISTER_FORM_ERROR } from '../../utils/constants.js';
-
 
 function App() {  
   const loggedInFromStorage = JSON.parse(localStorage.getItem('loggedIn'));
@@ -134,9 +131,6 @@ function App() {
             />} />
           <Route path='*' element={ <PageNotFound /> } />
 
-
-
-
           <Route path='/movies' element={
             <ProtectedRouteElement loggedIn={loggedIn} elements={
               <>
@@ -176,8 +170,6 @@ function App() {
               </>
             } />
           } />
-
-          
         </Routes>
       </div>
     </CurrentUserContext.Provider>

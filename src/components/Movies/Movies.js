@@ -13,10 +13,8 @@ function Movies(props) {
   const [moreCards, setMoreCards] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(false);
-  // const [render, setRender] = useState(true);
   const moviesForShowStart = moviesForShow.slice(0, cardsCount);
   
-
 
   useEffect(() => {
     if (localStorage.getItem('foundMovies')) {
@@ -85,7 +83,6 @@ function Movies(props) {
     localStorage.setItem('foundMovies', JSON.stringify(found));
   }, []);
 
-
   //получение фильмов по кнопке
   const handleSearchSubmit = useCallback((searchPhrase) => {
     const allMovies = localStorage.getItem('allMovies');
@@ -108,8 +105,6 @@ function Movies(props) {
         searchMovies(JSON.parse(allMovies), searchPhrase);
       }
   }, [searchMovies]);
-
-
 
   //клик фильтрации
   const handleClickFilterShorts = useCallback(() => {
@@ -134,7 +129,7 @@ function Movies(props) {
         handleSearchSubmit(searchPhrase);
       }
     }
-  }, [handleSearchSubmit]); //}, [foundMovies, searchPhrase]); - так работало точно
+  }, [handleSearchSubmit]);
 
   
 
