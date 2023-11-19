@@ -1,4 +1,4 @@
-export const MAIN_API_URL = "http://localhost:4000"; //"https://api.movieapp.nomoredomainsrocks.ru"
+export const MAIN_API_URL = "https://api.movieapp.nomoredomainsrocks.ru"; //""
 export const MOVIES_API_URL = "https://api.nomoreparties.co";
 
 
