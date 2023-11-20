@@ -26,28 +26,33 @@ function MoviesCard(props) {
     const token = localStorage.getItem('token');
     if (!isSavedMovie && pageMovies) { //если не сохранен, сохраняем
       saveMovie(props.movie, token)
-        .then(() => {
+        .then((movie) => {
           setSavedMovie(true);
+          const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies'));
+          newSavedMovies.push(movie);
+          localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
         })
         .catch(err => console.log(err));
-      props.setFlagRender(!props.flagRender);
     } else { //если сохранен, удаляем
       getSavedMovies(token)
         .then((result) => {
           result.forEach(element => {
-            if (element.movieId === props.movie.id) {
+            if (element.movieId === props.movie.id) { //удаление со страницы фильмов
               deleteMovie(element._id, token)
                 .then(() => {
                   setSavedMovie(false);
-                  props.setFlagRender(!props.flagRender);
+                  const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies')).filter(item => item._id !== element._id);
+                  localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
                 })
                 .catch(err => console.log(err));
             }
-            if (element.movieId === props.movie.movieId) {
+            if (element.movieId === props.movie.movieId) { //удаление со страницы сохраненных фильмов
               deleteMovie(element._id, token)
                 .then(() => {
                   setSavedMovie(false);
-                  props.setFlagRender(!props.flagRender);
+                  const newSavedMovies = props.savedMovies.filter(item => item._id !== element._id);
+                  localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+                  props.setSavedMovies(newSavedMovies);
                 })
                 .catch(err => console.log(err));
             }

@@ -18,9 +18,10 @@ import { LOGIN_FORM_ERROR, REGISTER_FORM_ERROR } from '../../utils/constants.js'
 function App() {  
   const loggedInFromStorage = JSON.parse(localStorage.getItem('loggedIn'));
   const [loggedIn, setLoggedIn] = useState(loggedInFromStorage);
-  const [flagRender, setFlagRender] = useState(true); //прокинуть пропсами
+  //const [flagRender, setFlagRender] = useState(true); //прокинуть пропсами
   const [currentUser, setCurrentUser] = useState({ name:'', email: "" });
-  const [savedMovies, setSavedMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
+  const [isLoading, setIsLoading] = useState(false);
   
   //errors
   const [registrationError, setRegistrationError] = useState('');
@@ -31,6 +32,7 @@ function App() {
 
   //регистрация
   function handleRegister(name, email, password) {
+    setIsLoading(true);
     register(name, email, password)
       .then ((result) => {
         if (result.status === 400) {
@@ -54,10 +56,12 @@ function App() {
         setRegistrationError(REGISTER_FORM_ERROR);
         console.log(err);
       })
+      .finally(() => setIsLoading(false));
   }
 
   //авторизация
   function handleLogin(email, password) {
+    setIsLoading(true);
     authorize(email, password)
       .then((result) => {
         if (result.status === 401) {
@@ -84,6 +88,7 @@ function App() {
         setLoginError(LOGIN_FORM_ERROR);
         console.log(err);
       })
+      .finally(() => setIsLoading(false));
   }
 
   useEffect(() => {
@@ -100,7 +105,7 @@ function App() {
           console.log(err);
         });
     }
-  },[loggedIn, flagRender]);
+  },[loggedIn]); //},[loggedIn, flagRender]);
 
 
   return (
@@ -120,6 +125,7 @@ function App() {
               onRegister={handleRegister}
               registrationError={registrationError}
               setRegistrationError={setRegistrationError}
+              isLoading={isLoading}
             />} />
 
           <Route path='/signin' element={
@@ -128,6 +134,7 @@ function App() {
               onLogin={handleLogin}
               loginError={loginError}
               setLoginError={setLoginError}
+              isLoading={isLoading}
             />} />
           <Route path='*' element={ <PageNotFound /> } />
 
@@ -136,8 +143,10 @@ function App() {
               <>
                 <Header loggedIn={loggedIn}/>
                 <Movies 
-                  flagRender={flagRender}
-                  setFlagRender={setFlagRender}
+                  // flagRender={flagRender}
+                  // setFlagRender={setFlagRender}
+                  savedMovies={savedMovies}
+                  setSavedMovies={setSavedMovies}
                 />
                 <Footer />
               </>
@@ -151,8 +160,8 @@ function App() {
                 <SavedMovies 
                   savedMovies={savedMovies} 
                   setSavedMovies={setSavedMovies}
-                  flagRender={flagRender}
-                  setFlagRender={setFlagRender}
+                  // flagRender={flagRender}
+                  // setFlagRender={setFlagRender}
                 />
                 <Footer />
               </>

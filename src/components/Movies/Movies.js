@@ -14,7 +14,12 @@ function Movies(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(false);
   const moviesForShowStart = moviesForShow.slice(0, cardsCount);
+  //const [flagRender, setFlagRender] = useState(true);
   
+
+  // useEffect(() => {
+  //   props.setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+  // }, []);
 
   useEffect(() => {
     if (localStorage.getItem('foundMovies')) {
@@ -147,8 +152,8 @@ function Movies(props) {
       <MoviesCardList
         movies={moviesForShowStart}
         isLoading={isLoading}
-        flagRender={props.flagRender}
-        setFlagRender={props.setFlagRender}
+        // flagRender={props.flagRender}
+        // setFlagRender={props.setFlagRender}
       />
       <div className="movies__more-container">
         {cardsCount < moviesForShow.length && (

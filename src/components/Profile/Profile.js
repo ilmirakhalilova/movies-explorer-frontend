@@ -13,6 +13,7 @@ function Profile(props) {
   const [updateUserError, setUpdateUserError] = useState('');
   const [saveError, setSaveError] = useState(false);
   const [successfullUpdate, setSuccessfullUpdate] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   // Подписка на контекст
   const currentUser = useContext(CurrentUserContext);
@@ -44,6 +45,7 @@ function Profile(props) {
   //Обновление профиля
   function handleUpdateUser(e) {
     e.preventDefault();
+    setIsLoading(true);
     setUserInfo({name: values.name, email: values.email})
       .then((result) => {
         if (result.status === 400) {
@@ -64,6 +66,7 @@ function Profile(props) {
         setSaveError(true);
         console.log(err);
       })
+      .finally(() => setIsLoading(false));
   }
 
     // Выход
@@ -104,18 +107,18 @@ function Profile(props) {
             <div>
               <label className="profile__field-name">
                 Имя
-                <input id="name" className="profile__input profile__input_type_active" value={values.name || ""} type="text" name="name" minLength="2" maxLength="30" pattern={NAME_REGEXP} placeholder="Введите имя" onChange={handleChange} required/>
+                <input id="name" className="profile__input profile__input_type_active" value={values.name || ""} type="text" name="name" minLength="2" maxLength="30" pattern={NAME_REGEXP} placeholder="Введите имя" onChange={handleChange} required disabled={isLoading} />
               </label>
               <span id="name-error" className="profile__error">{errors.name}</span>
               <label className="profile__field-name">
                 E-mail
-                <input id="email" className="profile__input profile__input_type_active" value={values.email || ""}  type="email" name="email" pattern={EMAIL_REGEXP} placeholder="Укажите e-mail" onChange={handleEmail} required/>
+                <input id="email" className="profile__input profile__input_type_active" value={values.email || ""}  type="email" name="email" pattern={EMAIL_REGEXP} placeholder="Укажите e-mail" onChange={handleEmail} required disabled={isLoading} />
               </label>
               <span id="email-error" className="profile__error">{errors.email}</span>
             </div>
             <div className="profile__buttons">
               <span id="profile-form-error" className="profile__form-error">{updateUserError}</span>
-              <button className={`profile__button profile__button_type_save animation" ${!isValid || !activeButton || saveError ? "profile__button_type_disabled" : ''}`} disabled={!isValid || !activeButton} type="submit" >Сохранить</button>
+              <button className={`profile__button profile__button_type_save animation" ${!isValid || !activeButton || saveError ? "profile__button_type_disabled" : ''}`} disabled={!isValid || !activeButton || isLoading} type="submit" >Сохранить</button>
             </div>
           </>
         )}

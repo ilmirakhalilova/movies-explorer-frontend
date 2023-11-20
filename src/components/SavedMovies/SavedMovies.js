@@ -6,7 +6,12 @@ import { DURATION_SHORT_MOVIE } from '../../utils/constants';
 
 function SavedMovies(props) {
   const [foundMoviesPageSM, setFoundMoviesPageSM] = useState(JSON.parse(localStorage.getItem('savedMovies'))); //то что выводим
+  //const [flagRender, setFlagRender] = useState(true); //прокинуть пропсами
 
+  useEffect(() => {
+    props.setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+  }, []);
+  
   useEffect(() => {
     setFoundMoviesPageSM(props.savedMovies);
   }, [props.savedMovies]);
@@ -55,8 +60,8 @@ function SavedMovies(props) {
         movies={foundMoviesPageSM}
         savedMovies={props.savedMovies}
         setSavedMovies={props.setSavedMovies}
-        flagRender={props.flagRender}
-        setFlagRender={props.setFlagRender}
+        // flagRender={props.flagRender}
+        // setFlagRender={props.setFlagRender}
       />
     </main>
   )

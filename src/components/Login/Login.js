@@ -29,18 +29,18 @@ function Login(props) {
           <div className="login__form-text">
             <label className="login__field-name">
               E-mail
-              <input id="email" name="email" className="login__input" type="email" pattern={EMAIL_REGEXP} required value={values.email || ""} placeholder="Введите email" onChange={handleInput}></input>
+              <input id="email" name="email" className="login__input" type="email" pattern={EMAIL_REGEXP} required value={values.email || ""} placeholder="Введите email" onChange={handleInput} disabled={props.isLoading ? true : false}></input>
               <span id="email-error" className="login__error">{errors.email}</span>
             </label>
             <label className="login__field-name">
               Пароль
-              <input id="password" name="password" className="login__input" type="password" placeholder="Введите пароль" minLength="8" maxLength="16" required value={values.password || ""} onChange={handleInput}></input>
+              <input id="password" name="password" className="login__input" type="password" placeholder="Введите пароль" minLength="8" maxLength="16" required value={values.password || ""} onChange={handleInput} disabled={props.isLoading ? true : false}></input>
               <span id="password-error" className="login__error">{errors.password}</span>
             </label>
           </div>
           <div className="login__buttons">
             <span id="login-form-error" className="login__form-error">{props.loginError}</span>
-            <button className={`login__button animation ${!isValid ? "login__button_type_disabled" : "" }`} type="submit">Войти</button>
+            <button className={`login__button animation ${!isValid ? "login__button_type_disabled" : "" }`} type="submit" disabled={!isValid || props.isLoading ? true : false}>Войти</button>
               <p className="login__text">
                 Ещё не зарегистрированы?
                 <Link to="/signup" className="login__link animation"> Регистрация</Link>
