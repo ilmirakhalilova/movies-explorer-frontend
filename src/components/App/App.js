@@ -99,6 +99,7 @@ function App() {
           setCurrentUser(infoUser);
           setSavedMovies(savedMovies);
           localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+          localStorage.setItem('savedMoviesForShow', JSON.stringify(savedMovies));
         })
         .catch((err) => {
           console.log(err);

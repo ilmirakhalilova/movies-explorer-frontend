@@ -5,15 +5,19 @@ import { useCallback, useEffect, useState } from 'react';
 import { DURATION_SHORT_MOVIE } from '../../utils/constants';
 
 function SavedMovies(props) {
-  const [foundMoviesPageSM, setFoundMoviesPageSM] = useState(JSON.parse(localStorage.getItem('savedMovies'))); //то что выводим
-  //const [flagRender, setFlagRender] = useState(true); //прокинуть пропсами
+  // const [foundMoviesPageSM, setFoundMoviesPageSM] = useState(JSON.parse(localStorage.getItem('savedMovies')));
+  const [moviesForShow, setMoviesForShow] = useState([]);
 
   useEffect(() => {
     props.setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
   }, []);
   
+  // useEffect(() => {
+  //   setFoundMoviesPageSM(props.savedMovies);
+  // }, [props.savedMovies]);
+
   useEffect(() => {
-    setFoundMoviesPageSM(props.savedMovies);
+    setMoviesForShow(JSON.parse(localStorage.getItem('savedMoviesForShow')));
   }, [props.savedMovies]);
 
   //функция поиска фильмов
@@ -36,7 +40,8 @@ function SavedMovies(props) {
     if (filterStateOn) {
       found = filter(found);
     }
-    setFoundMoviesPageSM(found);
+    setMoviesForShow(found);
+    localStorage.setItem('savedMoviesForShow', JSON.stringify(found));
   }, []);
 
   //клик фильтрации
@@ -45,7 +50,8 @@ function SavedMovies(props) {
     if (searchPhrase) { 
         handleSearchSubmit(searchPhrase, filterOn);
       } else {                                           //вот это вроде не нужно вообще
-      setFoundMoviesPageSM(filter(props.savedMovies));
+      // setFoundMoviesPageSM(filter(props.savedMovies));
+      setMoviesForShow(filter(props.savedMovies));
     }
   }, [handleSearchSubmit, props.savedMovies]);
 
@@ -57,7 +63,7 @@ function SavedMovies(props) {
         onFilter={handleClickFilterShorts}
       />
       <MoviesCardList 
-        movies={foundMoviesPageSM}
+        movies={moviesForShow}
         savedMovies={props.savedMovies}
         setSavedMovies={props.setSavedMovies}
       />

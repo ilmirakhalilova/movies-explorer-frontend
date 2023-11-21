@@ -23,13 +23,12 @@ function MoviesCardList(props) {
             
             props.movies.map((movie) => {
               return <MoviesCard 
+                        movies = {props.movies}
                         key={movie.id || movie._id}
                         movie={movie}
                         isSaved={JSON.parse(localStorage.getItem('savedMovies')).some((element) => element.movieId === movie.id)}
                         savedMovies={props.savedMovies}
                         setSavedMovies={props.setSavedMovies}
-                        flagRender={props.flagRender}
-                        setFlagRender={props.setFlagRender}
                       />
             })
           }

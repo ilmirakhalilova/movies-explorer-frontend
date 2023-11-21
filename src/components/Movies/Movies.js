@@ -13,9 +13,7 @@ function Movies(props) {
   const [moreCards, setMoreCards] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [loadingError, setLoadingError] = useState(false);
-  const moviesForShowStart = moviesForShow.slice(0, cardsCount);
-  //const [flagRender, setFlagRender] = useState(true);
-  
+  const moviesForShowStart = moviesForShow.slice(0, cardsCount);  
 
   // useEffect(() => {
   //   props.setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));

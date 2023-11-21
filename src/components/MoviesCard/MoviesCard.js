@@ -31,6 +31,7 @@ function MoviesCard(props) {
           const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies'));
           newSavedMovies.push(movie);
           localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+          localStorage.setItem('savedMoviesForShow', JSON.stringify(newSavedMovies));
         })
         .catch(err => console.log(err));
     } else { //если сохранен, удаляем
@@ -42,6 +43,8 @@ function MoviesCard(props) {
               setSavedMovie(false);
               const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies')).filter(item => item._id !== element._id);
               localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+              const newSavedMoviesForShow = JSON.parse(localStorage.getItem('savedMoviesForShow')).filter(item => item._id !== element._id);
+              localStorage.setItem('savedMoviesForShow', JSON.stringify(newSavedMoviesForShow));
             })
             .catch(err => console.log(err));
         }
@@ -52,6 +55,8 @@ function MoviesCard(props) {
               const newSavedMovies = props.savedMovies.filter(item => item._id !== element._id);
               localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
               props.setSavedMovies(newSavedMovies);
+              const newSavedMoviesForShow = props.movies.filter(item => item._id !== element._id);
+              localStorage.setItem('savedMoviesForShow', JSON.stringify(newSavedMoviesForShow));
             })
             .catch(err => console.log(err));
         }
