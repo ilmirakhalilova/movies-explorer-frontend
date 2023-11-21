@@ -152,8 +152,6 @@ function Movies(props) {
       <MoviesCardList
         movies={moviesForShowStart}
         isLoading={isLoading}
-        // flagRender={props.flagRender}
-        // setFlagRender={props.setFlagRender}
       />
       <div className="movies__more-container">
         {cardsCount < moviesForShow.length && (

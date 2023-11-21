@@ -60,8 +60,6 @@ function SavedMovies(props) {
         movies={foundMoviesPageSM}
         savedMovies={props.savedMovies}
         setSavedMovies={props.setSavedMovies}
-        // flagRender={props.flagRender}
-        // setFlagRender={props.setFlagRender}
       />
     </main>
   )

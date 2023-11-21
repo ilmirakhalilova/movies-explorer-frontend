@@ -34,31 +34,28 @@ function MoviesCard(props) {
         })
         .catch(err => console.log(err));
     } else { //если сохранен, удаляем
-      getSavedMovies(token)
-        .then((result) => {
-          result.forEach(element => {
-            if (element.movieId === props.movie.id) { //удаление со страницы фильмов
-              deleteMovie(element._id, token)
-                .then(() => {
-                  setSavedMovie(false);
-                  const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies')).filter(item => item._id !== element._id);
-                  localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
-                })
-                .catch(err => console.log(err));
-            }
-            if (element.movieId === props.movie.movieId) { //удаление со страницы сохраненных фильмов
-              deleteMovie(element._id, token)
-                .then(() => {
-                  setSavedMovie(false);
-                  const newSavedMovies = props.savedMovies.filter(item => item._id !== element._id);
-                  localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
-                  props.setSavedMovies(newSavedMovies);
-                })
-                .catch(err => console.log(err));
-            }
-          });
-        })
-        .catch(err => console.log(err));
+      const savedMoviesFromLS = JSON.parse(localStorage.getItem('savedMovies'));
+      savedMoviesFromLS.forEach(element => {
+        if (element.movieId === props.movie.id) { //удаление со страницы фильмов
+          deleteMovie(element._id, token)
+            .then(() => {
+              setSavedMovie(false);
+              const newSavedMovies = JSON.parse(localStorage.getItem('savedMovies')).filter(item => item._id !== element._id);
+              localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+            })
+            .catch(err => console.log(err));
+        }
+        if (element.movieId === props.movie.movieId) { //удаление со страницы сохраненных фильмов
+          deleteMovie(element._id, token)
+            .then(() => {
+              setSavedMovie(false);
+              const newSavedMovies = props.savedMovies.filter(item => item._id !== element._id);
+              localStorage.setItem('savedMovies', JSON.stringify(newSavedMovies));
+              props.setSavedMovies(newSavedMovies);
+            })
+            .catch(err => console.log(err));
+        }
+      });
     }
   }
 

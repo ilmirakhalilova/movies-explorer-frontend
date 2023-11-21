@@ -18,7 +18,6 @@ import { LOGIN_FORM_ERROR, REGISTER_FORM_ERROR } from '../../utils/constants.js'
 function App() {  
   const loggedInFromStorage = JSON.parse(localStorage.getItem('loggedIn'));
   const [loggedIn, setLoggedIn] = useState(loggedInFromStorage);
-  //const [flagRender, setFlagRender] = useState(true); //прокинуть пропсами
   const [currentUser, setCurrentUser] = useState({ name:'', email: "" });
   const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')) || []);
   const [isLoading, setIsLoading] = useState(false);
@@ -105,7 +104,9 @@ function App() {
           console.log(err);
         });
     }
-  },[loggedIn]); //},[loggedIn, flagRender]);
+  },[loggedIn]);
+
+
 
 
   return (
@@ -143,8 +144,6 @@ function App() {
               <>
                 <Header loggedIn={loggedIn}/>
                 <Movies 
-                  // flagRender={flagRender}
-                  // setFlagRender={setFlagRender}
                   savedMovies={savedMovies}
                   setSavedMovies={setSavedMovies}
                 />
@@ -160,8 +159,6 @@ function App() {
                 <SavedMovies 
                   savedMovies={savedMovies} 
                   setSavedMovies={setSavedMovies}
-                  // flagRender={flagRender}
-                  // setFlagRender={setFlagRender}
                 />
                 <Footer />
               </>
