@@ -1,17 +1,35 @@
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import { MOVIES_NOTHING_FOUND, USE_SEARCH } from '../../utils/constants';
+import { useLocation } from 'react-router-dom';
+import Preloader from '../Preloader/Preloader';
 
-function MoviesCardList({movies}) {
+function MoviesCardList(props) {
+  const { pathname } = useLocation();
+  const pageMovies = pathname === "/movies";
+
   return (
     <section className="movies-card-list">
-      {movies.length === 0 && (
-        <p className="movies-card-list__not-found">Ничего не найдено</p>
+
+      {pageMovies && props.isLoading && <Preloader />}
+
+      {props.movies.length === 0 && !props.isLoading && (
+        <p className="movies-card-list__not-found">{JSON.parse(localStorage.getItem('allMovies')) ? MOVIES_NOTHING_FOUND : USE_SEARCH}</p>
       )}
-      {movies.length > 0 && (
+      {props.movies.length > 0 && !props.isLoading && (
         <ul className="movies-card-list__container">
           {
-            movies.map((movie) => {
-              return <MoviesCard key={movie.id} movie={movie} />
+            
+            
+            props.movies.map((movie) => {
+              return <MoviesCard 
+                        movies = {props.movies}
+                        key={movie.id || movie._id}
+                        movie={movie}
+                        isSaved={JSON.parse(localStorage.getItem('savedMovies')).some((element) => element.movieId === movie.id)}
+                        savedMovies={props.savedMovies}
+                        setSavedMovies={props.setSavedMovies}
+                      />
             })
           }
         </ul>

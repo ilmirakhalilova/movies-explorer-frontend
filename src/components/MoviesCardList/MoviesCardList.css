@@ -1,6 +1,12 @@
 .movies-card-list {
   background: #202020;
   max-width: 1280px;
+
+  min-height: calc(100vh - 488px);
+  height: calc(100% - 488px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .movies-card-list__container {
@@ -15,7 +21,7 @@
 }
 
 .movies-card-list__not-found {
-  height: calc(100vh - 558px);
+   /* 558px */
   color: #FFF;
   font-family: 'Inter', 'Arial', sans-serif;
   font-size: 24px;
@@ -37,6 +43,10 @@
 }
 
 @media screen and (max-width: 400px) {
+  .movies-card-list {
+    min-height: calc(100vh - 570px);
+  }
+
   .movies-card-list__container {
     grid-template-columns: repeat(auto-fit, 300px);
     column-gap: 0;
